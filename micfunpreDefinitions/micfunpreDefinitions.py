@@ -38,6 +38,10 @@ def blast(query,db,in_numCores,cwd):
         cmd = "blastn -out " + os.path.join(cwd,"out.blast") + " -outfmt 6 -query " + query + " -db " + db + " -num_threads " + in_numCores + " -max_target_seqs 1"
     elif(sys.platform == 'win32'):
         cmd = "blastn.exe -out " + os.path.join(cwd,"out.blast") + " -outfmt 6 -query " + query + " -db " + db + " -num_threads " + in_numCores + " -max_target_seqs 1"
+    else:
+      print("whoops.")
+      return None
+    print(cmd)
     subBlast = subprocess.Popen(cmd,stdin=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
     output,error = subBlast.communicate()
     if(subBlast.returncode != 0):
