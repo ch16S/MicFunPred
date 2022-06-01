@@ -99,7 +99,7 @@ if (in_verbose):
     print("Running BLAST with " + str(in_percIdentCutOff) + " cut-off.")
 if (in_blastout == None):
     blastDbPath = in_blast_db if in_blast_db != None else os.path.join(dbPath,'blastDB','16S_all')
-    fp.blast(os.path.join(os.getcwd(),in_repSet), blastDbPath, in_numCores, cwd)
+    fp.blast(os.path.join(os.getcwd(),in_repSet), blastDbPath, in_numCores, cwd=cwd)
     tax_dict, abundTable = fp.selectBlastHits_assignGenus_subsetOtuTable(os.path.join(cwd,'out.blast'), in_otuTab,in_percIdentCutOff)
 elif(in_blastout != None):
     #filter with pident cut-off
