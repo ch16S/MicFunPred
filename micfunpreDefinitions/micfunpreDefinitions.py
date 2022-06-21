@@ -125,7 +125,7 @@ def makeKOTable(df,abundData,coreNum):
         median_series[median_series.between(0,1,False)] = 1
         #median_df = pd.Series.to_frame(median_series).transpose().round()
         median_df = pd.Series.to_frame(median_series).transpose()
-        dfToReturn = dfToReturn.append(median_df, ignore_index = True,sort=False)
+        dfToReturn = dfToReturn.append(median_df, ignore_index = True)
     dfToReturn.index = taxonomyList
     #replace NA with 0
     dfToReturn = dfToReturn.fillna(0)
